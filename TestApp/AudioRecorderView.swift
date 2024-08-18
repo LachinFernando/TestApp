@@ -105,7 +105,11 @@ struct AudioRecorderView: View {
                     audioManager.stopRecording()
                 }
             }
-            
+            Circle()
+                .fill(audioManager.isRecording ? Color.red : Color.green)
+                .frame(width: 50, height: 50)
+                .animation(.easeInOut(duration: 0.5), value: audioManager.isRecording)
+                .padding()
             if audioManager.audioFileURL != nil && !audioManager.isRecording {
                 Button("Play") {
                     audioManager.playRecordedFile()
