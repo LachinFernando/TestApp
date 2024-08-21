@@ -31,7 +31,7 @@ class AudioManager : ObservableObject {
     
     //the URL where the recording file will be stored
     private var recordingURL : URL {
-        getDocumentsDirectory().appendingPathComponent("recording.caf")
+        getDocumentsDirectory().appendingPathComponent("recording.wav")
     }
     
     private func getDocumentsDirectory() -> URL {
@@ -52,7 +52,9 @@ class AudioManager : ObservableObject {
         }
         //this describes the format the that the file will be recorded in
         let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            // kAudioFormatLinearPCM - for .wav
+            // kAudioFormatMPEG4AAC - for .caf and .mpfa
+            AVFormatIDKey: Int(kAudioFormatLinearPCM),
             AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
@@ -63,6 +65,7 @@ class AudioManager : ObservableObject {
                                                 settings: settings)
             audioRecorder?.record() //start the recording
             isRecording = true
+            print(recordingURL)
         } catch {
             print(error)
             isRecording = false
