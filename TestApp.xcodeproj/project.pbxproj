@@ -9,7 +9,15 @@
 /* Begin PBXBuildFile section */
 		614AD05C2C6FA0C200D5F984 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 614AD05B2C6FA0C200D5F984 /* Alamofire */; };
 		614AD05E2C6FA0C200D5F984 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 614AD05D2C6FA0C200D5F984 /* AlamofireDynamic */; };
+		614AD0602C706CEA00D5F984 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD05F2C706CEA00D5F984 /* SpeakerView.swift */; };
+		614AD0622C71986200D5F984 /* MultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD0612C71986200D5F984 /* MultiView.swift */; };
+		614AD0642C71989100D5F984 /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD0632C71989100D5F984 /* FirstPageView.swift */; };
+		614AD0662C7198CA00D5F984 /* SecondPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD0652C7198CA00D5F984 /* SecondPageView.swift */; };
+		614AD0682C71991D00D5F984 /* FinalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD0672C71991D00D5F984 /* FinalPageView.swift */; };
+		614AD06A2C71B51A00D5F984 /* AudioRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD0692C71B51A00D5F984 /* AudioRecorderView.swift */; };
+		614AD06C2C72221300D5F984 /* CSVFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD06B2C72221300D5F984 /* CSVFileView.swift */; };
 		618AAA782C6F98D50046BEC7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 618AAA772C6F98D50046BEC7 /* SwiftyJSON */; };
+		61AA0BD02C757A8B00FE9209 /* RectangleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */; };
 		61C9ADB22C69AA9C00A375E9 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADB12C69AA9C00A375E9 /* TestAppApp.swift */; };
 		61C9ADB42C69AA9C00A375E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADB32C69AA9C00A375E9 /* ContentView.swift */; };
 		61C9ADB62C69AA9D00A375E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C9ADB52C69AA9D00A375E9 /* Assets.xcassets */; };
@@ -39,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		614AD05F2C706CEA00D5F984 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
+		614AD0612C71986200D5F984 /* MultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiView.swift; sourceTree = "<group>"; };
+		614AD0632C71989100D5F984 /* FirstPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageView.swift; sourceTree = "<group>"; };
+		614AD0652C7198CA00D5F984 /* SecondPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageView.swift; sourceTree = "<group>"; };
+		614AD0672C71991D00D5F984 /* FinalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPageView.swift; sourceTree = "<group>"; };
+		614AD0692C71B51A00D5F984 /* AudioRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderView.swift; sourceTree = "<group>"; };
+		614AD06B2C72221300D5F984 /* CSVFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFileView.swift; sourceTree = "<group>"; };
+		61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTextView.swift; sourceTree = "<group>"; };
 		61C9ADAE2C69AA9C00A375E9 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C9ADB12C69AA9C00A375E9 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		61C9ADB32C69AA9C00A375E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +123,14 @@
 				61C9ADB12C69AA9C00A375E9 /* TestAppApp.swift */,
 				61C9ADB32C69AA9C00A375E9 /* ContentView.swift */,
 				61C9ADDB2C6A6E8A00A375E9 /* FormView.swift */,
+				614AD0612C71986200D5F984 /* MultiView.swift */,
+				614AD05F2C706CEA00D5F984 /* SpeakerView.swift */,
+				614AD0632C71989100D5F984 /* FirstPageView.swift */,
+				614AD0652C7198CA00D5F984 /* SecondPageView.swift */,
+				614AD0692C71B51A00D5F984 /* AudioRecorderView.swift */,
+				614AD06B2C72221300D5F984 /* CSVFileView.swift */,
+				614AD0672C71991D00D5F984 /* FinalPageView.swift */,
+				61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */,
 				61C9ADDD2C6B33F300A375E9 /* RandomSportsView.swift */,
 				61C9ADB52C69AA9D00A375E9 /* Assets.xcassets */,
 				61C9ADB72C69AA9D00A375E9 /* Preview Content */,
@@ -278,10 +302,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614AD0642C71989100D5F984 /* FirstPageView.swift in Sources */,
 				61C9ADDE2C6B33F300A375E9 /* RandomSportsView.swift in Sources */,
 				61C9ADDC2C6A6E8A00A375E9 /* FormView.swift in Sources */,
+				614AD0662C7198CA00D5F984 /* SecondPageView.swift in Sources */,
+				614AD0682C71991D00D5F984 /* FinalPageView.swift in Sources */,
+				614AD0622C71986200D5F984 /* MultiView.swift in Sources */,
 				61C9ADB42C69AA9C00A375E9 /* ContentView.swift in Sources */,
+				61AA0BD02C757A8B00FE9209 /* RectangleTextView.swift in Sources */,
 				61C9ADB22C69AA9C00A375E9 /* TestAppApp.swift in Sources */,
+				614AD0602C706CEA00D5F984 /* SpeakerView.swift in Sources */,
+				614AD06C2C72221300D5F984 /* CSVFileView.swift in Sources */,
+				614AD06A2C71B51A00D5F984 /* AudioRecorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +479,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -475,6 +508,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

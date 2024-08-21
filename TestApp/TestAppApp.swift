@@ -11,7 +11,7 @@ import SwiftUI
 struct TestAppApp: App {
     var body: some Scene {
         WindowGroup {
-            FormView()
+            AudioRecorderView()
         }
     }
 }
