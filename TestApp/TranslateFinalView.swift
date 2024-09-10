@@ -1,4 +1,11 @@
 //
+//  TranslateFinalView.swift
+//  TestApp
+//
+//  Created by Lachin Fernando on 2024-09-10.
+//
+
+//
 //  RectangleTextView.swift
 //  TestApp
 //
@@ -12,20 +19,94 @@ import SwiftyJSON
 import Speech
 
 
-class AudioHandler : ObservableObject {
+// Struct for the Data section in the response
+struct ResponseData: Decodable {
+    let questions: [String]
+}
+
+// Struct for the overall API response
+struct ApiResponse: Decodable {
+    let statusCode: Int
+    let data: ResponseData
+    let error: [String]
+}
+
+struct ListItemView: View {
+    var title: String
+    var content: [String]
+    var loadingContent: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            if loadingContent {
+                HStack {
+                    Spacer()
+                    ProgressView("Generating Questions.....")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    Spacer()
+                }
+                .padding()
+            } else {
+                Text(title)
+                    .font(.system(size: 25, weight: .bold))
+                    .foregroundColor(.black)
+                    .padding()
+                ForEach(content, id:\.self) {instructions in
+                    Text(instructions)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(5)
+                    Divider()
+                }
+            }
+        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(.black, lineWidth: 4)
+        )
+    }
+}
+
+// Service to handle API requests
+class ApiService {
+    // Async function to perform the API request
+    func fetchData(from url: String, payload createPayload: [String: Any]) async throws -> ApiResponse {
+        return try await withCheckedThrowingContinuation { continuation in
+            AF.request(url, method: .post, parameters: createPayload,encoding: JSONEncoding.default).validate().responseDecodable(of: ApiResponse.self) { response in
+                switch response.result {
+                case .success(let data):
+                    continuation.resume(returning: data)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
+}
+
+
+class MainAudioHandler : ObservableObject {
     @Published var canRecord = false
     @Published var isRecording = false
     @Published var isProcessing = false
     @Published var audioFileURL : URL?
     @Published var transcriptContent: String? = nil
     @Published var translatedContent: String? = nil
-    @Published var isExpanded: Bool = true
     @Published var toggleLanguage: Bool = true
     @Published var processStarted: Bool = false
+    @Published var questions: [String] = []
+    @Published var isLoading = false
+    @Published var error: Error?
+    @Published var viewInstructions: Bool = true
     private var audioPlayer : AVAudioPlayer?
     private var audioRecorder : AVAudioRecorder?
     private var transcript: String? = nil
     private var transcriptEndpoint: String = "https://1ibs5roq6f.execute-api.us-east-1.amazonaws.com/translaterx/transcript-ai"
+    private var questionGenerationEndpoint: String = "https://1ibs5roq6f.execute-api.us-east-1.amazonaws.com/translaterx/questionGenerator"
+    
+    private let apiService = ApiService()
     
     
     init() {
@@ -89,7 +170,6 @@ class AudioHandler : ObservableObject {
         audioRecorder?.stop()
         isRecording = false
         audioFileURL = recordingURL
-        self.isExpanded = false
         self.processStarted = true
         self.getTranscriptContents()
         
@@ -128,10 +208,52 @@ class AudioHandler : ObservableObject {
     }
     
     
-    func languageController() {
+    func cleaner() {
         self.transcriptContent = nil
         self.translatedContent = nil
         self.processStarted = false
+        self.viewInstructions = true
+    }
+    
+    
+    private func generateQuestions(user symptoms: String?) {
+        isLoading = true
+        error = nil
+        if symptoms == nil {
+            self.questions = [
+                "Error Generating the Questions.",
+                "Please Contact Support."
+            ]
+            self.isLoading = false
+            self.viewInstructions = false
+        } else {
+            Task {
+                do {
+                    // URL of the API endpoint
+                    let createPayload: [String: Any] = [
+                        "httpMethod":"POST",
+                        "body": [
+                            "symptoms": symptoms
+                        ]
+                    ]
+                    // Replace with your actual URL
+                    let responseData = try await apiService.fetchData(from: questionGenerationEndpoint, payload: createPayload)
+                    DispatchQueue.main.async {
+                        self.questions = responseData.data.questions
+                        self.isLoading = false
+                        self.viewInstructions = false
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.error = error
+                        self.isLoading = false
+                        self.viewInstructions = false
+                    }
+                }
+            }
+        }
+        
+        
     }
     
     
@@ -142,7 +264,6 @@ class AudioHandler : ObservableObject {
         }
         
         // Load the .wav file from the bundle or from a file path
-        print(audioFileURL.path)
         if let filePath = Bundle.main.path(forResource: "rec_seg", ofType: "wav") {
             print(filePath)
             do {
@@ -175,6 +296,9 @@ class AudioHandler : ObservableObject {
                         self.transcriptContent = transcriptAudioContent
                         let translatedAudioContent = json["data"]["translate"].stringValue
                         self.translatedContent = translatedAudioContent
+                        // select user symptoms
+                        let symptoms = self.toggleLanguage ? self.transcriptContent : self.translatedContent
+                        self.generateQuestions(user: symptoms)
                         self.isProcessing = false
                     case .failure(let error):
                         let message = "Error: \(error.localizedDescription)"
@@ -195,7 +319,7 @@ class AudioHandler : ObservableObject {
 }
 
 
-struct RectangleTextView: View {
+struct TranslateFinalView: View {
     private let windowSize: CGFloat = 500
     private var guides: [String] = [
         "Use the language button to toggle between languages.",
@@ -203,8 +327,7 @@ struct RectangleTextView: View {
         "Use respective mic button to speak up with the language you selected.",
         "After generating script and translated script, use clear button indicated by C to record another audio."
     ]
-    @State private var isExpanded: Bool = true
-    @StateObject private var audioManager = AudioHandler()
+    @StateObject private var audioManager = MainAudioHandler()
     
     var body: some View {
         ZStack {
@@ -308,24 +431,11 @@ struct RectangleTextView: View {
                             .stroke(.black, lineWidth: 4)
                     )
                     // List View
-                    VStack(alignment: .leading) {
-                        Text("Instructions")
-                            .font(.system(size: 25, weight: .bold))
-                            .foregroundColor(.black)
-                            .padding()
-                        ForEach(guides, id:\.self) {instructions in
-                            Text(instructions)
-                                .padding()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(Color.gray.opacity(0.2))
-                                .cornerRadius(5)
-                            Divider()
-                        }
+                    if audioManager.viewInstructions {
+                        ListItemView(title: "Instructions", content: guides, loadingContent: audioManager.isLoading)
+                    } else {
+                        ListItemView(title: "Similar Questions", content: audioManager.questions, loadingContent: audioManager.isLoading)
                     }
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .stroke(.black, lineWidth: 4)
-                    )
                 }
                 .padding()
             }
@@ -356,7 +466,7 @@ struct RectangleTextView: View {
                         .padding()
                         .overlay(
                             Button(action: {
-                                audioManager.languageController()
+                                audioManager.cleaner()
                             }) {
                                 Text("C")
                                     .font(.system(size: 15, weight: .bold))
@@ -373,5 +483,6 @@ struct RectangleTextView: View {
 }
 
 #Preview {
-    RectangleTextView()
+    TranslateFinalView()
 }
+
