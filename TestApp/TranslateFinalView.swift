@@ -264,6 +264,7 @@ class MainAudioHandler : ObservableObject {
         }
         
         // Load the .wav file from the bundle or from a file path
+        // This must be changed with recording.wav
         if let filePath = Bundle.main.path(forResource: "rec_seg", ofType: "wav") {
             print(filePath)
             do {
@@ -302,6 +303,7 @@ class MainAudioHandler : ObservableObject {
                         self.isProcessing = false
                     case .failure(let error):
                         let message = "Error: \(error.localizedDescription)"
+                        print(message)
                         self.transcriptContent = "Transcript Generation Failed"
                         self.isProcessing = false
                     }
@@ -320,7 +322,6 @@ class MainAudioHandler : ObservableObject {
 
 
 struct TranslateFinalView: View {
-    private let windowSize: CGFloat = 500
     private var guides: [String] = [
         "Use the language button to toggle between languages.",
         "E stands for English and S stands for Spanish.",
@@ -332,7 +333,7 @@ struct TranslateFinalView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                VStack {
+                VStack (spacing: 30) {
                     HStack {
                         Image("translate")
                             .resizable()
