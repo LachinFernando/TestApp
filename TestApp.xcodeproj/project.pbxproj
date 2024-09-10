@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		612C0DEB2C7ACEAE003197E7 /* recording.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612C0DEA2C7ACEAE003197E7 /* recording.wav */; };
+		612C0DEF2C7ADA80003197E7 /* rec_seg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612C0DEE2C7ADA80003197E7 /* rec_seg.wav */; };
 		614AD05C2C6FA0C200D5F984 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 614AD05B2C6FA0C200D5F984 /* Alamofire */; };
 		614AD05E2C6FA0C200D5F984 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 614AD05D2C6FA0C200D5F984 /* AlamofireDynamic */; };
 		614AD0602C706CEA00D5F984 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD05F2C706CEA00D5F984 /* SpeakerView.swift */; };
@@ -17,6 +19,7 @@
 		614AD06A2C71B51A00D5F984 /* AudioRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD0692C71B51A00D5F984 /* AudioRecorderView.swift */; };
 		614AD06C2C72221300D5F984 /* CSVFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614AD06B2C72221300D5F984 /* CSVFileView.swift */; };
 		618AAA782C6F98D50046BEC7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 618AAA772C6F98D50046BEC7 /* SwiftyJSON */; };
+		619F09352C8B2C48001848AC /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619F09342C8B2C48001848AC /* SpeechView.swift */; };
 		61AA0BD02C757A8B00FE9209 /* RectangleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */; };
 		61C9ADB22C69AA9C00A375E9 /* TestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADB12C69AA9C00A375E9 /* TestAppApp.swift */; };
 		61C9ADB42C69AA9C00A375E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADB32C69AA9C00A375E9 /* ContentView.swift */; };
@@ -27,6 +30,9 @@
 		61C9ADCF2C69AA9E00A375E9 /* TestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADCE2C69AA9E00A375E9 /* TestAppUITestsLaunchTests.swift */; };
 		61C9ADDC2C6A6E8A00A375E9 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADDB2C6A6E8A00A375E9 /* FormView.swift */; };
 		61C9ADDE2C6B33F300A375E9 /* RandomSportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C9ADDD2C6B33F300A375E9 /* RandomSportsView.swift */; };
+		61D3BF6D2C9001FD001E7234 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BF6C2C9001FD001E7234 /* ListView.swift */; };
+		61D3BF6F2C90135A001E7234 /* AsyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BF6E2C90135A001E7234 /* AsyncView.swift */; };
+		61D3BF712C902F9E001E7234 /* TranslateFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BF702C902F9E001E7234 /* TranslateFinalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		612C0DEA2C7ACEAE003197E7 /* recording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = recording.wav; path = ../../../../../Downloads/recording.wav; sourceTree = "<group>"; };
+		612C0DEE2C7ADA80003197E7 /* rec_seg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = rec_seg.wav; path = ../../../../../Downloads/rec_seg.wav; sourceTree = "<group>"; };
 		614AD05F2C706CEA00D5F984 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		614AD0612C71986200D5F984 /* MultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiView.swift; sourceTree = "<group>"; };
 		614AD0632C71989100D5F984 /* FirstPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageView.swift; sourceTree = "<group>"; };
@@ -54,6 +62,7 @@
 		614AD0672C71991D00D5F984 /* FinalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPageView.swift; sourceTree = "<group>"; };
 		614AD0692C71B51A00D5F984 /* AudioRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderView.swift; sourceTree = "<group>"; };
 		614AD06B2C72221300D5F984 /* CSVFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFileView.swift; sourceTree = "<group>"; };
+		619F09342C8B2C48001848AC /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleTextView.swift; sourceTree = "<group>"; };
 		61C9ADAE2C69AA9C00A375E9 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C9ADB12C69AA9C00A375E9 /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
@@ -67,6 +76,9 @@
 		61C9ADCE2C69AA9E00A375E9 /* TestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61C9ADDB2C6A6E8A00A375E9 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		61C9ADDD2C6B33F300A375E9 /* RandomSportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSportsView.swift; sourceTree = "<group>"; };
+		61D3BF6C2C9001FD001E7234 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		61D3BF6E2C90135A001E7234 /* AsyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncView.swift; sourceTree = "<group>"; };
+		61D3BF702C902F9E001E7234 /* TranslateFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateFinalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,13 +136,19 @@
 				61C9ADB32C69AA9C00A375E9 /* ContentView.swift */,
 				61C9ADDB2C6A6E8A00A375E9 /* FormView.swift */,
 				614AD0612C71986200D5F984 /* MultiView.swift */,
+				612C0DEE2C7ADA80003197E7 /* rec_seg.wav */,
 				614AD05F2C706CEA00D5F984 /* SpeakerView.swift */,
 				614AD0632C71989100D5F984 /* FirstPageView.swift */,
+				612C0DEA2C7ACEAE003197E7 /* recording.wav */,
 				614AD0652C7198CA00D5F984 /* SecondPageView.swift */,
 				614AD0692C71B51A00D5F984 /* AudioRecorderView.swift */,
 				614AD06B2C72221300D5F984 /* CSVFileView.swift */,
 				614AD0672C71991D00D5F984 /* FinalPageView.swift */,
+				619F09342C8B2C48001848AC /* SpeechView.swift */,
 				61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */,
+				61D3BF6E2C90135A001E7234 /* AsyncView.swift */,
+				61D3BF702C902F9E001E7234 /* TranslateFinalView.swift */,
+				61D3BF6C2C9001FD001E7234 /* ListView.swift */,
 				61C9ADDD2C6B33F300A375E9 /* RandomSportsView.swift */,
 				61C9ADB52C69AA9D00A375E9 /* Assets.xcassets */,
 				61C9ADB72C69AA9D00A375E9 /* Preview Content */,
@@ -276,7 +294,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612C0DEF2C7ADA80003197E7 /* rec_seg.wav in Resources */,
 				61C9ADB92C69AA9D00A375E9 /* Preview Assets.xcassets in Resources */,
+				612C0DEB2C7ACEAE003197E7 /* recording.wav in Resources */,
 				61C9ADB62C69AA9D00A375E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,11 +326,15 @@
 				61C9ADDE2C6B33F300A375E9 /* RandomSportsView.swift in Sources */,
 				61C9ADDC2C6A6E8A00A375E9 /* FormView.swift in Sources */,
 				614AD0662C7198CA00D5F984 /* SecondPageView.swift in Sources */,
+				61D3BF6F2C90135A001E7234 /* AsyncView.swift in Sources */,
+				619F09352C8B2C48001848AC /* SpeechView.swift in Sources */,
+				61D3BF712C902F9E001E7234 /* TranslateFinalView.swift in Sources */,
 				614AD0682C71991D00D5F984 /* FinalPageView.swift in Sources */,
 				614AD0622C71986200D5F984 /* MultiView.swift in Sources */,
 				61C9ADB42C69AA9C00A375E9 /* ContentView.swift in Sources */,
 				61AA0BD02C757A8B00FE9209 /* RectangleTextView.swift in Sources */,
 				61C9ADB22C69AA9C00A375E9 /* TestAppApp.swift in Sources */,
+				61D3BF6D2C9001FD001E7234 /* ListView.swift in Sources */,
 				614AD0602C706CEA00D5F984 /* SpeakerView.swift in Sources */,
 				614AD06C2C72221300D5F984 /* CSVFileView.swift in Sources */,
 				614AD06A2C71B51A00D5F984 /* AudioRecorderView.swift in Sources */,
