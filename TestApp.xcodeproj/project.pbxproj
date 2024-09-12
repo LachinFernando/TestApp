@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6123E1B62C9198CD00834D9F /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6123E1B52C9198CD00834D9F /* ChatBotView.swift */; };
 		612C0DEB2C7ACEAE003197E7 /* recording.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612C0DEA2C7ACEAE003197E7 /* recording.wav */; };
 		612C0DEF2C7ADA80003197E7 /* rec_seg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 612C0DEE2C7ADA80003197E7 /* rec_seg.wav */; };
 		614AD05C2C6FA0C200D5F984 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 614AD05B2C6FA0C200D5F984 /* Alamofire */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6123E1B52C9198CD00834D9F /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 		612C0DEA2C7ACEAE003197E7 /* recording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = recording.wav; path = ../../../../../Downloads/recording.wav; sourceTree = "<group>"; };
 		612C0DEE2C7ADA80003197E7 /* rec_seg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = rec_seg.wav; path = ../../../../../Downloads/rec_seg.wav; sourceTree = "<group>"; };
 		614AD05F2C706CEA00D5F984 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				61AA0BCF2C757A8B00FE9209 /* RectangleTextView.swift */,
 				61D3BF6E2C90135A001E7234 /* AsyncView.swift */,
 				61D3BF702C902F9E001E7234 /* TranslateFinalView.swift */,
+				6123E1B52C9198CD00834D9F /* ChatBotView.swift */,
 				61D3BF6C2C9001FD001E7234 /* ListView.swift */,
 				61C9ADDD2C6B33F300A375E9 /* RandomSportsView.swift */,
 				61C9ADB52C69AA9D00A375E9 /* Assets.xcassets */,
@@ -333,6 +336,7 @@
 				614AD0622C71986200D5F984 /* MultiView.swift in Sources */,
 				61C9ADB42C69AA9C00A375E9 /* ContentView.swift in Sources */,
 				61AA0BD02C757A8B00FE9209 /* RectangleTextView.swift in Sources */,
+				6123E1B62C9198CD00834D9F /* ChatBotView.swift in Sources */,
 				61C9ADB22C69AA9C00A375E9 /* TestAppApp.swift in Sources */,
 				61D3BF6D2C9001FD001E7234 /* ListView.swift in Sources */,
 				614AD0602C706CEA00D5F984 /* SpeakerView.swift in Sources */,
