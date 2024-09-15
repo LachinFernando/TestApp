@@ -107,6 +107,7 @@ class MainAudioHandler : ObservableObject {
     private var questionGenerationEndpoint: String = "https://1ibs5roq6f.execute-api.us-east-1.amazonaws.com/translaterx/questionGenerator"
     
     private let apiService = ApiService()
+    private let synthesizer = AVSpeechSynthesizer()
     
     
     init() {
@@ -189,15 +190,17 @@ class MainAudioHandler : ObservableObject {
         }
     }
     
-    func translateAndSpeak() {
+    func translateAndSpeak(script: String, selectLanguage: Bool) {
+        var languageSelection: String = "es-ES"
         // Translate transcriptionText from English to Spanish using an external translation API
         // let translatedText = translateToSpanish(text: transcriptionText)
+        if !selectLanguage {
+            languageSelection = "en-US"
+        }
         
-        let translatedText: String = "Lachin"
         // Use AVSpeechSynthesizer to speak the translated text
-        let synthesizer = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: translatedText)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        let utterance = AVSpeechUtterance(string: script)
+        utterance.voice = AVSpeechSynthesisVoice(language: languageSelection)
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         synthesizer.speak(utterance)
     }
@@ -259,16 +262,12 @@ class MainAudioHandler : ObservableObject {
     
     func getTranscriptContents() {
         isProcessing = true
-        guard let audioFileURL else {
-            return
-        }
         
         // Load the .wav file from the bundle or from a file path
         // This must be changed with recording.wav
-        if let filePath = Bundle.main.path(forResource: "rec_seg", ofType: "wav") {
-            print(filePath)
+        if let audioUrl = audioFileURL {
             do {
-                let fileData = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                let fileData = try Data(contentsOf: audioUrl)
                 
                 // Step 2: Convert the Data to Base64 encoded string
                 let base64String = fileData.base64EncodedString()
@@ -297,7 +296,9 @@ class MainAudioHandler : ObservableObject {
                         self.transcriptContent = transcriptAudioContent
                         let translatedAudioContent = json["data"]["translate"].stringValue
                         self.translatedContent = translatedAudioContent
-                        // select user symptoms
+                        // create the synthesis speaker
+                        self.translateAndSpeak(script: translatedAudioContent, selectLanguage: self.toggleLanguage)
+                        // select user symptoms and call the API
                         let symptoms = self.toggleLanguage ? self.transcriptContent : self.translatedContent
                         self.generateQuestions(user: symptoms)
                         self.isProcessing = false
@@ -311,10 +312,12 @@ class MainAudioHandler : ObservableObject {
                 
             } catch {
                 print("Error reading file: \(error.localizedDescription)")
+                self.isProcessing = false
                 return
             }
         } else {
             print("File not found")
+            self.isProcessing = false
             return
         }
     }
